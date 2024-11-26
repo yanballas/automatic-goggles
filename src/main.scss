@@ -1,0 +1,25 @@
+@import "/src/styles/resets";
+@import "/src/styles/vars";
+@import "/src/styles/breakpoints";
+
+.page {
+  display: flex;
+  max-width: 1920px;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0 auto;
+  color: $black;
+  font-family: $roboto;
+  font-size: 16px;
+  line-height: 120%;
+}
+
+.header {
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.footer {
+}

@@ -1,0 +1,47 @@
+$breakpoints-from: (
+  "xxs": 0,
+  "xs": 375px,
+  "s": 412px,
+  "m": 768px,
+  "l": 1024px,
+  "xl": 1280px,
+  "xxl": 1366px,
+  "xxxl": 1920px,
+) !default;
+$breakpoints-to: (
+  "xxs": 374px,
+  "xs": 411px,
+  "s-": 530px,
+  "s": 767px,
+  "m": 1023px,
+  "l": 1279px,
+  "xl": 1365px,
+  "xxl": 1919px,
+) !default;
+
+/* Точное совпадение */
+@mixin eq($breakpoint) {
+  @if $breakpoint == "xxxl" {
+    @media (min-width: map-get($breakpoints-from, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: map-get($breakpoints-from, $breakpoint)) and (max-width: map-get($breakpoints-to, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+/* Больше чем. Например screen-gte(sm) вернет sm и больше */
+@mixin gt($breakpoint) {
+  @media (min-width: map-get($breakpoints-from, $breakpoint)) {
+    @content;
+  }
+}
+
+/* Меньше чем */
+@mixin lt($breakpoint) {
+  @media (max-width: map-get($breakpoints-to, $breakpoint)) {
+    @content;
+  }
+}

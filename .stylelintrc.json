@@ -1,0 +1,8 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-standard-scss", "stylelint-config-idiomatic-order"],
+  "rules": {
+    "media-feature-range-notation": null
+  },
+  "defaultSeverity": "warning",
+  "plugins": ["stylelint-order"]
+}
