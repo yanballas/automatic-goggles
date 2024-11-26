@@ -2,6 +2,75 @@
 @import "/src/styles/vars";
 @import "/src/styles/breakpoints";
 
+@keyframes button-action {
+  0% {
+    transform: scale(0.75);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.75);
+  }
+}
+
+.logo {
+  width: 159px;
+  height: 165px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  & a {
+    color: $white;
+    font-size: 19px;
+    line-height: 120%;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+  }
+
+  & li {
+    &:hover {
+      & a {
+        color: $yellow-100;
+      }
+    }
+  }
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+
+  & img {
+    flex-shrink: 0;
+  }
+
+  &--small {
+    gap: 9px;
+
+    & img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &--big {
+    gap: 25px;
+
+    & img {
+      width: 62px;
+      height: 62px;
+    }
+  }
+}
+
 .page {
   display: flex;
   max-width: 1920px;
@@ -12,14 +81,449 @@
   font-family: $roboto;
   font-size: 16px;
   line-height: 120%;
+
+  &--box {
+    padding: 0 181px;
+  }
+
+  &__title {
+    font-family: $jaro;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    &_xl {
+      font-size: 34px;
+      line-height: 120%;
+    }
+
+    &_l {
+      font-size: 25px;
+      line-height: 25px;
+    }
+
+    &_m {
+      font-size: 18px;
+      line-height: 120%;
+    }
+  }
+
+  &__text {
+    color: $gray-100;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 31px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+  }
+
+  &__button {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    animation: button-action 3s ease infinite;
+    cursor: pointer;
+    font-family: $jaro;
+    font-size: 25px;
+    line-height: 120%;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+
+    &:hover {
+      animation: none;
+    }
+
+    &_l {
+      padding: 21px 22px;
+      background: $yellow-100;
+      color: $black;
+
+      &:hover {
+        background: $yellow-200;
+      }
+    }
+
+    &_m {
+      padding: 16px 23px;
+      background: $purple-100;
+      color: $white;
+
+      &:hover {
+        background: $purple-200;
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 16px 20px;
+    background: $white;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      margin: 0;
+      appearance: none;
+    }
+
+    &::placeholder {
+      color: $gray-100;
+      font-size: 20px;
+      opacity: 0.7;
+      text-transform: uppercase;
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    & input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      accent-color: $yellow-100;
+    }
+
+    & label {
+      color: $white;
+      font-size: 17px;
+      line-height: 120%;
+    }
+  }
 }
 
 .header {
+  position: relative;
+  background: url("/header-back.jpeg") no-repeat center/cover;
+
+  &::before {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: $black;
+    content: "";
+    opacity: 0.6;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__up {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 37px;
+  }
+
+  &__down {
+    display: flex;
+    align-items: center;
+    gap: 43px;
+
+    & a {
+      text-decoration: none;
+    }
+
+    & .page__title {
+      color: $yellow-100;
+      cursor: pointer;
+      transition: all 0.5s ease;
+
+      &:hover {
+        color: $yellow-200;
+      }
+    }
+
+    & .page__button {
+      max-width: 150px;
+      height: 50px;
+    }
+  }
+
+  &-search {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
 }
 
 .main {
+  display: grid;
   flex-grow: 1;
+  padding-top: 46px;
+  padding-bottom: 93px;
+  gap: 92px;
+  grid-template-columns: 856px 590px;
+
+  &__about {
+    &-slider {
+      margin-bottom: 45px;
+
+      & .swiper {
+        &-slide {
+          &__pic {
+            position: relative;
+            height: 482px;
+
+            &::before {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              display: block;
+              width: 352px;
+              height: 357px;
+              background: url("/page-slide-decor.png") no-repeat center/contain;
+              content: "";
+              transform: translate(-50%, -50%);
+            }
+
+            &_1 {
+              background: url("/page-slide.jpeg") no-repeat center/cover;
+            }
+
+            &_2 {
+              background: url("/page-slide.jpeg") no-repeat center/cover;
+            }
+
+            &_3 {
+              background: url("/page-slide.jpeg") no-repeat center/cover;
+            }
+          }
+        }
+
+        &-pagination {
+          position: absolute;
+          right: 14px;
+          bottom: 14px;
+          display: flex;
+          gap: 10px;
+
+          &-bullet {
+            position: relative;
+            z-index: 9;
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+            background-color: $white;
+            cursor: pointer;
+            transition-duration: 300ms;
+
+            &-active {
+              background-color: $black;
+            }
+          }
+        }
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 39px;
+    }
+
+    &-headling {
+      display: flex;
+      flex-direction: column;
+      gap: 23px;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 39px;
+    }
+
+    &-card {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 3px solid $black;
+      gap: 29px;
+
+      &:nth-of-type(1) {
+        padding-bottom: 39px;
+      }
+
+      &:nth-of-type(2) {
+        padding-bottom: 84px;
+      }
+
+      &:last-of-type {
+        border: none;
+
+        & .page__button {
+          min-width: 286px;
+          min-height: 50px;
+          align-self: flex-end;
+        }
+      }
+
+      &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 79px;
+      }
+
+      &__content {
+        display: grid;
+        gap: 33px;
+        grid-template-columns: auto 335px;
+      }
+
+      &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 31px;
+      }
+    }
+  }
+
+  &__join {
+    &-headling {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 60px;
+      gap: 22px;
+
+      & .page__title {
+        border-bottom: 3px solid $black;
+      }
+    }
+
+    &-form {
+      position: relative;
+      padding: 39px;
+      margin-bottom: 44px;
+      background: url("/page-back.jpeg") no-repeat center/cover;
+
+      &::before {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: $gray-100;
+        content: "";
+        opacity: 0.9;
+      }
+
+      & .page__title,
+      & .page__text {
+        color: $white;
+      }
+
+      & .page__button {
+        width: 100%;
+        justify-content: flex-start;
+        animation: none;
+        opacity: 0.5;
+      }
+
+      & .page__input {
+        margin-bottom: 15px;
+      }
+
+      & .page__checkbox {
+        margin-bottom: 39px;
+      }
+
+      &__content {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 39px;
+      }
+
+      &__title {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 39px;
+    }
+
+    &-card {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      & .page__title {
+        padding-bottom: 7px;
+        border-bottom: 3px solid $black;
+      }
+
+      & .page__button {
+        max-width: 172px;
+        min-height: 50px;
+        align-self: flex-end;
+      }
+
+      &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+        & a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
 
 .footer {
+  position: relative;
+  padding: 20px 20px 24px;
+  background: url("/page-back.jpeg") no-repeat center/cover;
+
+  &::before {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: $gray-100;
+    content: "";
+    opacity: 0.8;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }
