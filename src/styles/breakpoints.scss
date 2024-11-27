@@ -1,22 +1,16 @@
 $breakpoints-from: (
-  "xxs": 0,
-  "xs": 375px,
-  "s": 412px,
+  "xs": 0px,
+  "s": 590px,
   "m": 768px,
   "l": 1024px,
-  "xl": 1280px,
-  "xxl": 1366px,
-  "xxxl": 1920px,
+  "xl": 1440px,
 ) !default;
 $breakpoints-to: (
-  "xxs": 374px,
-  "xs": 411px,
-  "s-": 530px,
+  "xs": 589px,
   "s": 767px,
   "m": 1023px,
-  "l": 1279px,
-  "xl": 1365px,
-  "xxl": 1919px,
+  "l": 1449px,
+  "xl": 1919px,
 ) !default;
 
 /* Точное совпадение */

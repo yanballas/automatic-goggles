@@ -24,6 +24,7 @@
         <div class="header__content">
           <img class="logo" src="/logo.png" alt="" />
           <nav class="nav">
+            <button class="nav__button"><span></span><span></span></button>
             <div class="nav__up">
               <ul class="menu">
                 <li>
@@ -76,6 +77,9 @@
               </li>
             </ul>
           </nav>
+          <div class="header__burger">
+            <button><span></span><span></span><span></span></button>
+          </div>
         </div>
       </header>
       <main class="main page--box">
@@ -214,22 +218,25 @@
               <form action="" method="post">
                 <input
                   type="text"
+                  name="name"
                   placeholder="FIRST NAME"
                   class="page__input"
                 />
                 <input
                   type="text"
+                  name="surname"
                   placeholder="LAST NAME"
                   class="page__input"
                 />
-                <input type="email" placeholder="EMAIL*" class="page__input" />
+                <input type="email" placeholder="EMAIL*" name="email" class="page__input" />
                 <input
                   type="number"
+                  name="zip"
                   placeholder="ZIP/POSTAL CODE*"
                   class="page__input"
                 />
                 <div class="page__checkbox">
-                  <input type="checkbox" id="checkbox_1" />
+                  <input type="checkbox" id="checkbox_1" name="checkbox"/>
                   <label for="checkbox_1"
                     >Sign up for periodic text messages from ANTI CASINO</label
                   >
